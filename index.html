@@ -4,114 +4,145 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DoseDropApp</title>
-
   <style>
     body {
       font-family: Arial, Helvetica, sans-serif;
       background-color: #FFFBEA;
       text-align: center;
-      
-      hr {
-        border-color: #720C0C;
-        width: 350px;
-      }
-
-      button {
-        background-color: #720C0C;
-        color: #FBDC6A;
-        padding: 15px 30px;
-        border-radius: 30px;
-        width: 225px;
-        border: none;
-        font-size: 20px;
-        font-weight: bold;
-      }
-      input[type="text"] {
-        background-color: #D9D9D9;
-        font-size: 20px;
-        padding: 15px 30px;
-        border-radius: 30px;
-        border: none;
-        width: 250px;
-        font-weight: bold;
-      }
-      
+      margin: 0;
+    }
+    hr {
+      border-color: #720C0C;
+      width: 350px;
+      margin-bottom: 35px;
+    }
+    button {
+      background-color: #720C0C;
+      color: #FBDC6A;
+      padding: 15px 30px;
+      border-radius: 30px;
+      width: 225px;
+      border: none;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 35px;
+      cursor: pointer;
+    }
+    input[type="text"] {
+      background-color: #D9D9D9;
+      font-size: 20px;
+      padding: 15px 30px;
+      border-radius: 30px;
+      border: none;
+      width: 250px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    small {
+      color: #720C0C;
+      display: block;
+      font-size: 15px;
+      margin-bottom: 28px;
+      margin-top: 4px;
+    }
+    .section-header {
+      background-color: #570000;
+      height: 60px;
+      padding: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .section-header h1, .section-header h2 {
+      color: #FBDC6A;
+      margin: 0;
     }
   </style>
 </head>
-<body style="margin: 0; width:100%">
+<body>
 
-  <header style="background-color: #720C0C; padding: 20px; margin: 0;">
-   <h1 style="color: #FBDC6A;">DOSEDROP</h1>
-  </header>
+<header style="background-color: #720C0C; padding: 20px; margin: 0;">
+  <h1 style="color: #FBDC6A;">DOSEDROP</h1>
+</header>
 
-  <section>
-    <div style="background-color: #570000; height: 60px; padding: 5px; display: flex; justify-content: center; align-items: center; ">
-      <h1 style="font-size: 25px; color: #FBDC6A; ">Cadastrar medicamentos:</h1>
-    </div>
+<section>
+  <div style="background-color: #570000; height: 60px; padding: 5px; display: flex; justify-content: center; align-items: center;">
+    <h1 style="font-size: 25px; color: #FBDC6A;">Cadastrar medicamentos:</h1>
+  </div>
+  <div>
+    <h3 style="color: #720C0C; margin-top: 25px;">Medicamento 1:</h3>
+    <input type="text" id="nome1" placeholder="Insira o nome">
+    <input type="text" id="frequencia1" placeholder="Insira a frequência">
+    <small>De quantas em quantas horas?</small>
+    <input type="text" id="quantidade1" placeholder="Insira a quantidade">
+    <small>Quantos medicamentos por vez?</small>
+    <button onclick="atualizarMedicamento1()">Confirmar</button>
+  </div>
+  <hr>
 
-    <div>
-      <h3 style="color: #720C0C; margin-top: 25px;">Medicamento 1:</h3>
-      <input type="text" placeholder="Insira o nome" style="margin-bottom: 25px;">
-      <input type="text" placeholder="Insira a frequência">
-      <small style="color: #720C0C; display: block; margin-bottom: 28px; margin-top: 4px;">De quantas em quantas horas?</small>
-      <input type="text" placeholder="Insira a quantidade">
-      <small style="color: #720C0C; display: block; margin-bottom: 28px; margin-top: 4px">Quantos medicamentos por vez?</small>
-      <button style="margin-bottom: 35px;" >Confirmar</button>
-    </div>
-    
-    <hr style="margin-bottom: 35px;"">
+  <div>
+    <h3 style="color: #720C0C; margin-top: 25px;">Medicamento 2:</h3>
+    <input type="text" id="nome2" placeholder="Insira o nome">
+    <input type="text" id="frequencia2" placeholder="Insira a frequência">
+    <small>De quantas em quantas horas?</small>
+    <input type="text" id="quantidade2" placeholder="Insira a quantidade">
+    <small>Quantos medicamentos por vez?</small>
+    <button onclick="atualizarMedicamento2()">Confirmar</button>
+  </div>
+</section>
 
-    <div>
-      <h3 style="color: #720C0C; margin-top: 25px;">Medicamento 2:</h3>
-      <input type="text" placeholder="Insira o nome" style="margin-bottom: 25px;">
-      <input type="text" placeholder="Insira a frequência">
-      <small style="color: #720C0C; display: block; margin-bottom: 28px; margin-top: 4px;">De quantas em quantas horas?</small>
-      <input type="text" placeholder="Insira a quantidade">
-      <small style="color: #720C0C; display: block; margin-bottom: 28px; margin-top: 4px">Quantos medicamentos por vez?</small>
-      <button style="margin-bottom: 35px;" >Confirmar</button>
-    </div>
-  </section>
+<section>
+  <div style="background-color: #570000; height: 60px; display: flex; justify-content: center; align-items: center;">
+    <h2 style="font-size: 24px; color: #FBDC6A;">Medicamentos Cadastrados</h2>
+  </div>
 
-  <section>
-    <div style="background-color: #570000; height: 60px; display: flex; justify-content: center; align-items: center;">
-      <h2 style="font-size: 24px; color: #FBDC6A;">Medicamentos Cadastrados</h2>
-    </div>
+  <div>
+    <h3 style="color: #720C0C; font-size: 30px;">Medicamento 1</h3>
+    <small style="font-size: 20px;">Nome:</small>
+    <p id="med1-nome" style="color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;"><b>-</b></p>
+    <small style="font-size: 20px;">Frequência:</small>
+    <p id="med1-frequencia" style="color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;"><b>-</b></p>
+    <small style="font-size: 20px;">Quantidade:</small>
+    <p id="med1-quantidade" style="color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;"><b>-</b></p>
+    <small style="font-size: 20px;">Tempo restante:</small>
+    <p id="med1-tempo" style="color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;"><b>--:--</b></p>
+  </div>
+  <hr>
 
-    <div>
-      <h3 style="color: #720C0C; font-size: 30px;">Medicamento 1</h3>
+  <div>
+    <h3 style="color: #720C0C; font-size: 30px;">Medicamento 2</h3>
+    <small style="font-size: 20px;">Nome:</small>
+    <p id="med2-nome" style="color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;"><b>-</b></p>
+    <small style="font-size: 20px;">Frequência:</small>
+    <p id="med2-frequencia" style="color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;"><b>-</b></p>
+    <small style="font-size: 20px;">Quantidade:</small>
+    <p id="med2-quantidade" style="color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;"><b>-</b></p>
+    <small style="font-size: 20px;">Tempo restante:</small>
+    <p id="med2-tempo" style="color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;"><b>--:--</b></p>
+  </div>
+</section>
 
-      <small style="color: #720C0C; font-size: 18px;">Nome:</small>
-      <p style="color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;"><b>Dipirona</b></p>
+<script>
+  function atualizarMedicamento1() {
+    const nome = document.getElementById("nome1").value || "-";
+    const frequencia = document.getElementById("frequencia1").value || "-";
+    const quantidade = document.getElementById("quantidade1").value || "-";
 
-      <small style="color: #720C0C; font-size: 18px;">Frequência:</small>
-      <p style="color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;"><b>8 em 8 horas</b></p>
+    document.getElementById("med1-nome").innerHTML = `<b>${nome}</b>`;
+    document.getElementById("med1-frequencia").innerHTML = `<b>${frequencia}</b>`;
+    document.getElementById("med1-quantidade").innerHTML = `<b>${quantidade}</b>`;
+  }
 
-      <small style="color: #720C0C; font-size: 18px;">Quantidade:</small>
-      <p style="color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;"><b>1 por vez</b></p>
+  function atualizarMedicamento2() {
+    const nome = document.getElementById("nome2").value || "-";
+    const frequencia = document.getElementById("frequencia2").value || "-";
+    const quantidade = document.getElementById("quantidade2").value || "-";
 
-      <small style="color: #720C0C; font-size: 18px;">Tempo restante:</small>
-      <p style="color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;"><b>2:59</b></p>
-    </div>
-
-      <hr>
-
-    <div>
-      <h3 style="color: #720C0C; font-size: 30px;">Medicamento 2</h3>
-
-      <small style="color: #720C0C; font-size: 18px;">Nome:</small>
-      <p style="font-size:20px; color:#FBDC6A; -webkit-text-stroke: 1px #720C0C;"><b>Dipirona</b></p>
-
-      <small style="color: #720C0C; font-size: 18px;">Frequência:</small>
-      <p style="color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;"><b>8 em 8 horas</b></p>
-
-      <small style="color: #720C0C; font-size: 18px;">Quantidade:</small>
-      <p style="color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;"><b>1 por vez</b></p>
-
-      <small style="color: #720C0C; font-size: 18px;">Tempo restante:</small>
-      <p style="color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;"><b>2:59</b></p>
-    </div>
-  </section>
+    document.getElementById("med2-nome").innerHTML = `<b>${nome}</b>`;
+    document.getElementById("med2-frequencia").innerHTML = `<b>${frequencia}</b>`;
+    document.getElementById("med2-quantidade").innerHTML = `<b>${quantidade}</b>`;
+  }
+</script>
 
 </body>
 </html>
