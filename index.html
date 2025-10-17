@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang='pt-BR'>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   <title>DoseDropApp</title>
   <style>
     body {
@@ -28,7 +28,8 @@
       margin-bottom: 35px;
       cursor: pointer;
     }
-    input[type="text"] {
+    input[type='text'],
+    input[type='time'] {
       background-color: #D9D9D9;
       font-size: 20px;
       padding: 15px 30px;
@@ -37,6 +38,7 @@
       width: 250px;
       font-weight: bold;
       margin-bottom: 10px;
+      box-sizing: border-box;
     }
     small {
       color: #720C0C;
@@ -53,6 +55,9 @@
       justify-content: center;
       align-items: center;
     }
+    p {
+      font-size: 28px;
+    }
     .section-header h1, .section-header h2 {
       color: #FBDC6A;
       margin: 0;
@@ -61,87 +66,119 @@
 </head>
 <body>
 
-<header style="background-color: #720C0C; padding: 20px; margin: 0;">
-  <h1 style="color: #FBDC6A;">DOSEDROP</h1>
+<header style='background-color: #720C0C; padding: 20px; margin: 0;'>
+  <h1 style='color: #FBDC6A;'>DOSEDROP</h1>
 </header>
 
 <section>
-  <div style="background-color: #570000; height: 60px; padding: 5px; display: flex; justify-content: center; align-items: center;">
-    <h1 style="font-size: 25px; color: #FBDC6A;">Cadastrar medicamentos:</h1>
+  <div style='background-color: #570000; height: 60px; padding: 5px; display: flex; justify-content: center; align-items: center;'>
+    <h1 style='font-size: 25px; color: #FBDC6A;'>Cadastrar medicamentos:</h1>
   </div>
   <div>
-    <h3 style="color: #720C0C; margin-top: 25px;">Medicamento 1:</h3>
-    <input type="text" id="nome1" placeholder="Insira o nome">
-    <input type="text" id="frequencia1" placeholder="Insira a frequência">
+    <h3 style='color: #720C0C; margin-top: 25px;'>Medicamento 1:</h3>
+    <input type='text' id='nome1' placeholder='Insira o nome'>
+    <input type='time' id='frequencia1'>
     <small>De quantas em quantas horas?</small>
-    <input type="text" id="quantidade1" placeholder="Insira a quantidade">
+    <input type='text' id='quantidade1' placeholder='Insira a quantidade'>
     <small>Quantos medicamentos por vez?</small>
-    <button onclick="atualizarMedicamento1()">Confirmar</button>
+    <button id='botao1' onclick='atualizarMedicamento1()'>Confirmar</button>
   </div>
   <hr>
 
   <div>
-    <h3 style="color: #720C0C; margin-top: 25px;">Medicamento 2:</h3>
-    <input type="text" id="nome2" placeholder="Insira o nome">
-    <input type="text" id="frequencia2" placeholder="Insira a frequência">
+    <h3 style='color: #720C0C; margin-top: 25px;'>Medicamento 2:</h3>
+    <input type='text' id='nome2' placeholder='Insira o nome'>
+    <input type='time' id='frequencia2'>
     <small>De quantas em quantas horas?</small>
-    <input type="text" id="quantidade2" placeholder="Insira a quantidade">
+    <input type='text' id='quantidade2' placeholder='Insira a quantidade'>
     <small>Quantos medicamentos por vez?</small>
-    <button onclick="atualizarMedicamento2()">Confirmar</button>
+    <button id='botao2' onclick='atualizarMedicamento2()'>Confirmar</button>
   </div>
 </section>
 
 <section>
-  <div style="background-color: #570000; height: 60px; display: flex; justify-content: center; align-items: center;">
-    <h2 style="font-size: 24px; color: #FBDC6A;">Medicamentos Cadastrados</h2>
+  <div style='background-color: #570000; height: 60px; display: flex; justify-content: center; align-items: center;'>
+    <h2 style='font-size: 24px; color: #FBDC6A;'>Medicamentos Cadastrados</h2>
   </div>
 
   <div>
-    <h3 style="color: #720C0C; font-size: 30px;">Medicamento 1</h3>
-    <small style="font-size: 20px;">Nome:</small>
-    <p id="med1-nome" style="color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;"><b>-</b></p>
-    <small style="font-size: 20px;">Frequência:</small>
-    <p id="med1-frequencia" style="color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;"><b>-</b></p>
-    <small style="font-size: 20px;">Quantidade:</small>
-    <p id="med1-quantidade" style="color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;"><b>-</b></p>
-    <small style="font-size: 20px;">Tempo restante:</small>
-    <p id="med1-tempo" style="color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;"><b>--:--</b></p>
+    <h3 style='color: #720C0C; font-size: 30px;'>Medicamento 1</h3>
+    <small style='font-size: 20px;'>Nome:</small>
+    <p id='med1-nome' style='color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;'><b>-</b></p>
+    <small style='font-size: 20px;'>Frequência:</small>
+    <p id='med1-frequencia' style='color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;'><b>-</b></p>
+    <small style='font-size: 20px;'>Quantidade:</small>
+    <p id='med1-quantidade' style='color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;'><b>-</b></p>
+    <small style='font-size: 20px;'>Tempo restante:</small>
+    <p id='med1-tempo' style='color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;'><b>--:--</b></p>
   </div>
   <hr>
 
   <div>
-    <h3 style="color: #720C0C; font-size: 30px;">Medicamento 2</h3>
-    <small style="font-size: 20px;">Nome:</small>
-    <p id="med2-nome" style="color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;"><b>-</b></p>
-    <small style="font-size: 20px;">Frequência:</small>
-    <p id="med2-frequencia" style="color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;"><b>-</b></p>
-    <small style="font-size: 20px;">Quantidade:</small>
-    <p id="med2-quantidade" style="color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;"><b>-</b></p>
-    <small style="font-size: 20px;">Tempo restante:</small>
-    <p id="med2-tempo" style="color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;"><b>--:--</b></p>
+    <h3 style='color: #720C0C; font-size: 30px;'>Medicamento 2</h3>
+    <small style='font-size: 20px;'>Nome:</small>
+    <p id='med2-nome' style='color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;'><b>-</b></p>
+    <small style='font-size: 20px;'>Frequência:</small>
+    <p id='med2-frequencia' style='color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;'><b>-</b></p>
+    <small style='font-size: 20px;'>Quantidade:</small>
+    <p id='med2-quantidade' style='color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;'><b>-</b></p>
+    <small style='font-size: 20px;'>Tempo restante:</small>
+    <p id='med2-tempo' style='color: #FBDC6A; -webkit-text-stroke: 1px #720C0C;'><b>--:--</b></p>
   </div>
 </section>
 
 <script>
   function atualizarMedicamento1() {
-    const nome = document.getElementById("nome1").value || "-";
-    const frequencia = document.getElementById("frequencia1").value || "-";
-    const quantidade = document.getElementById("quantidade1").value || "-";
+    const nome = document.getElementById('nome1').value || '-';
+    const frequencia = document.getElementById('frequencia1').value || '-';
+    const quantidade = document.getElementById('quantidade1').value || '-';
 
-    document.getElementById("med1-nome").innerHTML = `<b>${nome}</b>`;
-    document.getElementById("med1-frequencia").innerHTML = `<b>${frequencia}</b>`;
-    document.getElementById("med1-quantidade").innerHTML = `<b>${quantidade}</b>`;
+    document.getElementById('med1-nome').innerHTML = `<b>${nome}</b>`;
+    document.getElementById('med1-frequencia').innerHTML = `<b>${frequencia}</b>`;
+    document.getElementById('med1-quantidade').innerHTML = `<b>${quantidade}</b>`;
   }
 
   function atualizarMedicamento2() {
-    const nome = document.getElementById("nome2").value || "-";
-    const frequencia = document.getElementById("frequencia2").value || "-";
-    const quantidade = document.getElementById("quantidade2").value || "-";
+    const nome = document.getElementById('nome2').value || '-';
+    const frequencia = document.getElementById('frequencia2').value || '-';
+    const quantidade = document.getElementById('quantidade2').value || '-';
 
-    document.getElementById("med2-nome").innerHTML = `<b>${nome}</b>`;
-    document.getElementById("med2-frequencia").innerHTML = `<b>${frequencia}</b>`;
-    document.getElementById("med2-quantidade").innerHTML = `<b>${quantidade}</b>`;
+    document.getElementById('med2-nome').innerHTML = `<b>${nome}</b>`;
+    document.getElementById('med2-frequencia').innerHTML = `<b>${frequencia}</b>`;
+    document.getElementById('med2-quantidade').innerHTML = `<b>${quantidade}</b>`;
   }
+</script>
+
+<script>
+  let Socket;
+  let botao1 = document.getElementById('botao1');
+  let botao2 = document.getElementById('botao2');
+
+  botao1.addEventListener('click', sendMessage1);
+  botao2.addEventListener('click', sendMessage2);
+
+  function init() {
+    Socket = new WebSocket(`ws://${window.location.hostname}:81`);
+    Socket.onmessage = (message) => {
+      processMessage(message);
+    };
+  }
+
+  function sendMessage1() {
+    const freq = document.getElementById('frequencia1').value || '-';
+    Socket.send(`Frequencia1: ${freq}`);
+  }
+
+  function sendMessage2() {
+    const freq = document.getElementById('frequencia2').value || '-';
+    Socket.send(`Frequencia2: ${freq}`);
+  }
+
+  function processMessage(message) {
+    document.querySelector('#informacao').innerHTML = message.data;
+  }
+
+  window.onload = init;
 </script>
 
 </body>
